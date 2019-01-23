@@ -1,6 +1,6 @@
 # iostrace
 
-![alt text](https://raw.githubusercontent.com/jsherman212/iostrace/master/iostrace.png)
+![alt text](https://github.com/jsherman212/iostrace/blob/master/iostrace.png)
 
 Strace-like utility for iOS devices. Can watch system calls, mach system calls, and mach traps being made by any PID, including the kernel
 
