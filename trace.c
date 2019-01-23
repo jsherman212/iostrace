@@ -61,7 +61,6 @@ typedef struct {
 int initialize_ktrace_buffer(void){
 	int mib[3];
 
-	/* kdebug_enable will only be set if the buffer is initialized, see bsd/kern/kdebug.c */
 	mib[0] = CTL_KERN;
 	mib[1] = KERN_KDEBUG;
 	mib[2] = KERN_KDSETUP;
@@ -282,6 +281,7 @@ int main(int argc, char **argv, const char **envp){
 
 	free(pidstr);
 	
+	/* kdebug_enable will only be set if the buffer is initialized, see bsd/kern/kdebug.c */
 	initialize_ktrace_buffer();
 
 	while(1){
@@ -341,7 +341,7 @@ int main(int argc, char **argv, const char **envp){
 				continue;
 
 			char *tidstr = NULL;
-			asprintf(&tidstr, "(0x%-6.6llx) ", current.arg5);
+			asprintf(&tidstr, "[0x%-6.6llx] ", current.arg5);
 
 			char *calling, *returning;
 			
